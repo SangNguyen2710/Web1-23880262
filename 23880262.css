@@ -1,0 +1,157 @@
+:root {
+  --pink: #fa97c2;
+  --blue: #2fa0d5;
+  --green: #73c926;
+}
+
+body {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Changa One", cursive;
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 60px;
+  line-height: 60px;
+  font-weight: 900;
+}
+
+/*Thanh Nav ------------------------------------------------ */
+#menu-header a {
+  display: block;
+  padding: 0 1.25rem;
+  font-family: "Changa One", cursive;
+  font-weight: bold;
+  color: black;
+}
+#menu-header-search {
+  width: 8rem;
+}
+
+#menu-header li a.active {
+  color: var(--blue);
+}
+
+#nav-form-search i {
+  color: var(--green);
+}
+
+#nav-form-search input {
+  width: 7rem;
+}
+
+/*Banner ----------------------------------------------------*/
+#banner {
+  background-image: url("images/bg-banner.gif");
+}
+#banner > div {
+  background: url("images/logo_bg.png") left top no-repeat,
+    url("images/search_bg.png") right top no-repeat;
+  padding: 5rem 0 3rem 0;
+}
+#banner a {
+  background-color: var(--pink);
+  font-family: "Changa One", cursive;
+  font-size: 2rem;
+}
+
+#banner .carousel-item {
+  min-height: 15rem;
+}
+
+#banner h1 {
+  font-size: 3rem;
+}
+
+#banner .carousel-indicators li {
+  list-style-type: none;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 1.2rem;
+  border: none;
+  margin: 0 0.25rem;
+  position: relative; /*Để neo thẻ span bên trong tạo chấm xanh ở giữa*/
+}
+
+#banner .carousel-indicators li span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 0.6rem;
+  border: none;
+  text-align: left;
+  text-indent: -99999px;
+}
+
+#banner .carousel-indicators li.active span {
+  background-color: var(--green);
+}
+/*Icon column--------------------------------------------- */
+#items-column .col-3 a {
+  color: var(--blue);
+}
+
+/*About us ------------------------------------------------*/
+#about-us {
+  background-color: var(--pink);
+  min-height: 16rem;
+}
+#about-us > .container > .row > .col-9 > h1 {
+  font-size: 4rem !important;
+}
+
+#about-us #sign-up {
+  border-style: dashed !important;
+  border-color: rgba(0, 0, 0, 0.5) !important;
+}
+#about-us a {
+  color: var(--blue);
+}
+
+/*NEWS -------------------------------------------------------*/
+#news {
+  min-height: 16rem;
+}
+#news > .container > h1:nth-of-type(1) {
+  font-size: 4rem !important;
+}
+
+#news #date {
+  background-color: var(--green);
+}
+
+#news a {
+  color: var(--blue);
+}
+
+/*FOOTER -----------------------------------------------------*/
+#footer {
+  background-image: url(images/bg-footer.gif);
+  min-height: 7.5rem;
+}
+
+#menu-footer a {
+  padding: 0 1.25rem;
+  font-family: "Changa One", cursive;
+  font-weight: bold;
+  color: white;
+}
+
+#menu-footer .nav-item {
+  margin: 0 1rem;
+}
+
+#menu-footer li a.active {
+  color: var(--pink);
+}
