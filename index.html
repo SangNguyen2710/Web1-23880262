@@ -80,7 +80,13 @@
                   <a class="nav-link" href="contact.html">Contacts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a
+                    class="nav-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    >Login</a
+                  >
                 </li>
               </ul>
               <form
@@ -102,257 +108,137 @@
       </div>
     </header>
     <main>
-      <!--Banner , carousel-->
-      <div class="container-fluid" id="banner">
-        <div class="container text-center text-white">
-          <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
-            <ol class="carousel-indicators">
-              <li
-                data-bs-target="#carouselId"
-                data-bs-slide-to="0"
-                class="active"
-                aria-current="true"
-                aria-label="First slide"
-              >
-                <span>0</span>
-              </li>
-              <li
-                data-bs-target="#carouselId"
-                data-bs-slide-to="1"
-                aria-label="Second slide"
-              >
-                <span>1</span>
-              </li>
-              <li
-                data-bs-target="#carouselId"
-                data-bs-slide-to="2"
-                aria-label="Third slide"
-              >
-                <span>2</span>
-              </li>
-            </ol>
-            <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <h1>
-                  Web Development
-                  <br />
-                  for everyone
-                </h1>
-                <a
-                  href="gallery.html"
-                  class="btn text-white text-center text-bold text-uppercase rounded-4"
-                  >See more</a
+      <div id="main">
+        <!--Banner , carousel-->
+        <div class="container-fluid" id="banner">
+          <div class="container text-center text-white">
+            <div id="carouselId" class="carousel slide" data-bs-ride="carousel">
+              <ol class="carousel-indicators">
+                <li
+                  data-bs-target="#carouselId"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="First slide"
                 >
-              </div>
-              <div class="carousel-item">
-                <h1>23880262</h1>
-                <h1>Nguyen Thanh Sang</h1>
-              </div>
-              <div class="carousel-item">
-                <h1>Lap trinh web 1</h1>
-                <h1>DTTX - Hoc ky 1 - 2025-2026</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!--Icon column-->
-      <div class="container" id="items-column">
-        <div class="row align-items-center py-5">
-          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-            <img
-              src="images/icon-1.png"
-              class="img-fluid rounded-top"
-              alt="Coffee-icon"
-            />
-            <h3>Coffee</h3>
-            <p class="text-black-50">
-              Coffee energizes the mind, warms the soul, and fuels creativity
-              daily.
-            </p>
-            <a href="">Read more</a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-            <img
-              src="images/icon-2.png"
-              class="img-fluid rounded-top"
-              alt="Drinks-icon"
-            />
-            <h3>Drinks</h3>
-            <p class="text-black-50">
-              Drinks refresh, rejuvenate, and bring people together in joyful
-              moments.
-            </p>
-            <a href="">Read more</a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-            <img
-              src="images/icon-3.png"
-              class="img-fluid rounded-top"
-              alt="Cake-icon"
-            />
-            <h3>Cakes</h3>
-            <p class="text-black-50">
-              Cakes sweeten celebrations, delighting taste buds with layers of
-              joy.
-            </p>
-            <a href="">Read more</a>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-            <img
-              src="images/icon-4.png"
-              class="img-fluid rounded-top"
-              alt="Icecream-icon"
-            />
-            <h3>Ice-creams</h3>
-            <p class="text-black-50">
-              Ice creams cool, delight, and bring sweet joy to everyone.
-            </p>
-            <a href="">Read more</a>
-          </div>
-        </div>
-      </div>
-
-      <!--About us-->
-      <div class="container-fluid" id="about-us">
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-lg-9 col-md-8 col-sm-12">
-              <h1 class="text-white text-bold">About Us</h1>
-              <div class="row align-items-center g-5">
-                <div class="col-lg-3 col-md-4 col-sm-12 me-2">
-                  <img src="images/icon-about.png" alt="icon-about" class="" />
-                </div>
-                <div class="col-9 col-md-8 col-sm-12">
-                  <p class="text-black-50">
-                    Exploring the Web1 Project: A Student's Journey in Modern
+                  <span>0</span>
+                </li>
+                <li
+                  data-bs-target="#carouselId"
+                  data-bs-slide-to="1"
+                  aria-label="Second slide"
+                >
+                  <span>1</span>
+                </li>
+                <li
+                  data-bs-target="#carouselId"
+                  data-bs-slide-to="2"
+                  aria-label="Third slide"
+                >
+                  <span>2</span>
+                </li>
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                  <h1>
                     Web Development
-                  </p>
-                  <p class="text-black-50">
-                    Welcome to the Web1 project, a student's exploration into
-                    the world of web development. This website serves as a
-                    hands-on practice platform, showcasing skills in HTML5,
-                    CSS3, JavaScript, Bootstrap, HandlebarJS, and Web API
-                    integration.
-                  </p>
-                  <a href="about.html">Read more</a>
+                    <br />
+                    for everyone
+                  </h1>
+                  <a
+                    href="gallery.html"
+                    class="btn text-white text-center text-bold text-uppercase rounded-4"
+                    >See more</a
+                  >
                 </div>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-12">
-              <div
-                class="container border border-3 rounded-1 overflow-auto"
-                id="sign-up"
-              >
-                <h1 class="text-white text-bold text-center">
-                  Newsletter <br />
-                  Sign Up
-                </h1>
-                <form>
-                  <div class="mb-3">
-                    <label for="email" class="form-label text-black-50"
-                      >Please write an email</label
-                    >
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="email"
-                      id="email"
-                      aria-describedby="helpId"
-                      placeholder=""
-                    />
-                    <div class="text-end">
-                      <button
-                        type="submit"
-                        class="btn btn-dark fs-5 mt-2 rounded-4 px-4"
-                      >
-                        <h4 class="my-auto">SIGN UP</h4>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+                <div class="carousel-item">
+                  <h1>23880262</h1>
+                  <h1>Nguyen Thanh Sang</h1>
+                </div>
+                <div class="carousel-item">
+                  <h1>Lap trinh web 1</h1>
+                  <h1>DTTX - Hoc ky 1 - 2025-2026</h1>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
 
-      <!--News-->
-      <div class="container-fluid" id="news">
-        <div class="container">
-          <h1 class="text-bold text-black">News</h1>
-          <div class="row g-5">
-            <!--Cột 1-->
-            <div class="col-4">
-              <div class="row">
-                <div class="col-lg-3 col-md-5 col-sm-12">
-                  <h3
-                    class="text-white text-bold text-center py-2 px-2 rounded-3"
-                    id="date"
-                  >
-                    Dec. <br />
-                    25.
-                  </h3>
-                </div>
-                <div class="col-lg-9 col-md-7 col-sm-12">
-                  <h3 class="text-black text-bold">
-                    Coffee Enthusiasts Rejoice
-                  </h3>
-                  <p class="text-black-50">
-                    New Study Reveals Coffee's Surprising Benefits for Mental
-                    Health
-                  </p>
-                  <a href="">Read more</a>
-                </div>
-              </div>
-            </div>
-            <!--Cột 2-->
-            <div class="col-4">
-              <div class="row">
-                <div class="col-lg-3 col-md-5 col-sm-12">
-                  <h3
-                    class="text-white text-bold text-center py-2 px-2 rounded-3"
-                    id="date"
-                  >
-                    Nov. <br />
-                    22.
-                  </h3>
-                </div>
-                <div class="col-lg-9 col-md-7 col-sm-12">
-                  <h3 class="text-black text-bold">Culinary Revolution</h3>
-                  <p class="text-black-50">
-                    AI Chefs Redefine Gourmet Dining with Innovative Dishes
-                  </p>
-                  <a href="">Read more</a>
+        <!--Icon column-->
+        <div class="container" id="items-column"></div>
+
+        <!--About us-->
+        <div class="container-fluid" id="about-us">
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-lg-9 col-md-8 col-sm-12">
+                <h1 class="text-white text-bold">About Us</h1>
+                <div class="row align-items-center g-5">
+                  <div class="col-lg-3 col-md-4 col-sm-12 me-2">
+                    <img
+                      src="images/icon-about.png"
+                      alt="icon-about"
+                      class=""
+                    />
+                  </div>
+                  <div class="col-9 col-md-8 col-sm-12">
+                    <p class="text-black-50">
+                      Exploring the Web1 Project: A Student's Journey in Modern
+                      Web Development
+                    </p>
+                    <p class="text-black-50">
+                      Welcome to the Web1 project, a student's exploration into
+                      the world of web development. This website serves as a
+                      hands-on practice platform, showcasing skills in HTML5,
+                      CSS3, JavaScript, Bootstrap, HandlebarJS, and Web API
+                      integration.
+                    </p>
+                    <a href="about.html">Read more</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--Cột 3-->
-            <div class="col-4">
-              <div class="row">
-                <div class="col-lg-3 col-md-5 col-sm-12">
-                  <h3
-                    class="text-white text-bold text-center py-2 px-2 rounded-3"
-                    id="date"
-                  >
-                    Oct. <br />
-                    10.
-                  </h3>
-                </div>
-                <div class="col-lg-9 col-md-7 col-sm-12">
-                  <h3 class="text-black text-bold">Our Cakes</h3>
-                  <p class="text-black-50">
-                    Cake Artistry Reaches New Heights with 3D-Printed Edible
-                    Masterpieces
-                  </p>
-                  <a href="">Read more</a>
+              <div class="col-lg-3 col-md-4 col-sm-12">
+                <div
+                  class="container border border-3 rounded-1 overflow-auto"
+                  id="sign-up"
+                >
+                  <h1 class="text-white text-bold text-center">
+                    Newsletter <br />
+                    Sign Up
+                  </h1>
+                  <form>
+                    <div class="mb-3">
+                      <label for="email" class="form-label text-black-50"
+                        >Please write an email</label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        name="email"
+                        id="email"
+                        aria-describedby="helpId"
+                        placeholder=""
+                      />
+                      <div class="text-end">
+                        <button
+                          type="submit"
+                          class="btn btn-dark fs-5 mt-2 rounded-4 px-4"
+                        >
+                          <h4 class="my-auto">SIGN UP</h4>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
           </div>
         </div>
+
+        <!--News-->
+        <div class="container-fluid" id="news"></div>
       </div>
+      <div id="content" style="display: none"></div>
     </main>
     <footer>
       <!-- place footer here -->
@@ -382,7 +268,13 @@
                   <a class="nav-link" href="contact.html">Contacts</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Login</a>
+                  <a
+                    class="nav-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    >Login</a
+                  >
                 </li>
               </ul>
             </div>
@@ -393,6 +285,71 @@
         </p>
       </div>
     </footer>
+
+    <!--Login Modal-->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div
+      class="modal fade"
+      id="LoginModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      role="dialog"
+      aria-labelledby="modalTitleId"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post">
+              <h3 class="text-center">Login Form</h3>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  class="form-control"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn form-control text-white">
+                Login
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+      const myModal = new bootstrap.Modal(
+        document.getElementById("modalId"),
+        options
+      );
+    </script>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -405,5 +362,99 @@
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
       crossorigin="anonymous"
     ></script>
+
+    <!--Handlebars JS-->
+    <!-- Include Handlebars from a CDN -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--Template for Handlebars-->
+    <script id="products-template" type="text/x-handlebars-template">
+      <div class="row align-items-center py-5">
+        {{#each data}}
+          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
+            <img
+              src="{{imagepath}}"
+              class="img-fluid rounded-top"
+              alt="{{name}}"
+              onmouseover="setActiveImage(this,'{{imagepath}}')"
+              onmouseout="setActiveImage(this,'{{imagepath}}', false)"
+            />
+            <h3>{{name}}</h3>
+            <p class="text-black-50">
+              {{summary}}
+            </p>
+            <a
+              href="#"
+              onclick="
+                getData('products/{{id}}','products-detail-template','content');
+                document.getElementById('main').style.display='none';
+                document.getElementById('content').style.display='block';
+                "
+            >Read more</a>
+          </div>
+        {{/each}}
+      </div>
+    </script>
+    <script id="news-template" type="text/x-handlebars-template">
+      <div class="container">
+        <h1 class="text-bold text-black">News</h1>
+        <div class="row g-5">
+          <!--Cột 1-->
+          {{#each data}}
+            <div class="col-4">
+              <div class="row">
+                <div class="col-lg-3 col-md-5 col-sm-12">
+                  <h3
+                    class="text-white text-bold text-center py-2 px-2 rounded-3"
+                    id="date"
+                  >
+                    {{date}}
+                  </h3>
+                </div>
+                <div class="col-lg-9 col-md-7 col-sm-12">
+                  <h3 class="text-black text-bold">
+                    {{name}}
+                  </h3>
+                  <p class="text-black-50">
+                    {{summary}}
+                  </p>
+                  <a
+                    href="#"
+                    onclick="getData('news/{{id}}','products-detail-template','content');
+                    document.getElementById('main').style.display='none';
+                    document.getElementById('content').style.display='block';"
+                  >Read more</a>
+                </div>
+              </div>
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </script>
+
+    <script id="products-detail-template" type="text/x-handlebars-template">
+      <div class="container-fluid" id="banner-small">
+      </div>
+      <div class="container py-5">
+        {{#each data}}
+          <h1
+            class="pb-1"
+            style="font-size: 4.5rem; font-weight: 900;"
+          >{{name}}</h1>
+          <div class="text-black-50">{{{description}}}</div>
+        {{/each}}
+      </div>
+    </script>
+
+    <!--Fetch data from API-->
+    <script src="23880262.js"></script>
+    <script>
+      getData("products", "products-template", "items-column");
+      getData("news", "news-template", "news");
+    </script>
   </body>
 </html>

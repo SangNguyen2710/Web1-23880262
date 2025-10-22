@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>23880262-Web 1 Project</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="23880262.css" />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!--Favicon-->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <!--Changa font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Font awsome-->
+    <script
+      src="https://kit.fontawesome.com/5739475cf6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <!-- place navbar here -->
+      <div class="container">
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <div class="container">
+            <a class="navbar-brand" href="#"
+              ><img
+                src="images/logo.png"
+                class="img-fluid rounded-top"
+                alt="Logo"
+              />
+            </a>
+            <button
+              class="navbar-toggler d-lg-none"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapsibleNavId"
+              aria-controls="collapsibleNavId"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu-header">
+              <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html" aria-current="page"
+                    >Home <span class="visually-hidden">(current)</span></a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contacts</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    >Login</a
+                  >
+                </li>
+              </ul>
+              <form
+                class="d-flex my-2 my-lg-0 border rounded-pill"
+                id="nav-form-search"
+              >
+                <input
+                  class="form-control ms-3 border-0"
+                  type="text"
+                  placeholder="Search"
+                />
+                <button class="btn my-2 my-sm-0 border-0" type="submit">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="container-fluid mb-5" id="banner-small"></div>
+      <!--Main-->
+      <div class="container mb-3" id="main-blogs">
+        <div class="row" id="list">
+          <div class="col-8" id="blog"></div>
+          <div class="col-4" id="blog-category"></div>
+        </div>
+      </div>
+
+      <div id="content-blogs"></div>
+    </main>
+    <footer>
+      <!-- place footer here -->
+      <div class="container-fluid" id="footer">
+        <nav class="navbar navbar-expand-sm navbar-light">
+          <div class="container">
+            <div class="collapse navbar-collapse" id="menu-footer">
+              <ul class="navbar-nav mt-5 mt-lg-3 mx-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html" aria-current="page"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="gallery.html">Gallery</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="blogs.html">Blogs</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contacts</a>
+                </li>
+                <li class="nav-item">
+                  <a
+                    class="nav-link"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    >Login</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <p class="text-white-50 text-center mt-2">
+          Copyright © 2022 by Nguyen Thanh Sang - 23880262
+        </p>
+      </div>
+    </footer>
+
+    <!--Login Modal-->
+    <!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+    <div
+      class="modal fade"
+      id="LoginModal"
+      tabindex="-1"
+      data-bs-backdrop="static"
+      data-bs-keyboard="false"
+      role="dialog"
+      aria-labelledby="modalTitleId"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-scrollable modal-dialog-centered"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form action="" method="post">
+              <h3 class="text-center">Login Form</h3>
+              <div class="mb-3">
+                <input
+                  type="text"
+                  name="username"
+                  id="username"
+                  class="form-control"
+                  placeholder="Username"
+                />
+              </div>
+              <div class="mb-3">
+                <input
+                  type="password"
+                  name="password"
+                  id="password"
+                  class="form-control"
+                  placeholder="Password"
+                />
+              </div>
+              <button type="submit" class="btn form-control text-white">
+                Login
+              </button>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Optional: Place to the bottom of scripts -->
+    <script>
+      const myModal = new bootstrap.Modal(
+        document.getElementById("modalId"),
+        options
+      );
+    </script>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+
+    <!--Handlebars JS-->
+    <!-- Include Handlebars from a CDN -->
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--Template for Handlebars-->
+    <script>
+      Handlebars.registerHelper("formatDate", function (date) {
+        let formatDate = new Date(date);
+        let option = {
+          weekday: "short",
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+          timeZoneName: "short",
+        };
+        return formatDate.toLocaleDateString("en-US", option);
+      });
+    </script>
+
+    <script id="blogcategory-template" type="text/x-handlebars-template">
+      <h1>Categories</h1>
+      <ul>
+        {{#each data}}
+          <li class="mb-2">
+            <a
+              class="text-decoration-none text-black-50"
+              href="#"
+              onclick="getBlogsData('blogs/categories/{{id}}', 'blogs-template', 'blog', 1);"
+            >{{name}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script id="blogs-template" type="text/x-handlebars-template">
+      <h1 class="mb-3">Blogs</h1>
+      {{#each data}}
+        <div class="clearfix mb-3">
+          <h3>{{name}}</h3>
+          <p class="text-black-50">
+            by
+            {{author}}
+            in
+            <a
+              href="#"
+              onclick="getBlogsData('blogs/categories/{{category.id}}', 'blogs-template', 'blog', 1);"
+            >{{category.name}}</a>
+            on
+            {{formatDate date}}
+            <a
+              href="#"
+              onclick="loadBlogDetails('{{id}}',true);"
+            >Comments ({{comments.length}})</a>
+          </p>
+          <img
+            src="{{thumbpath}}"
+            alt="{{name}}"
+            class="float-start rounded-4 me-3"
+          />
+          <p class="text-black-50 mb-5">
+            {{summary}}
+          </p>
+          <a href="#" id="readmore" onclick="loadBlogDetails('{{id}}')">Read more</a>
+        </div>
+
+      {{/each}}
+      <!--Pagination-->
+      {{#pagination currentPage pageCount}}
+        <nav aria-label="Page navigation" id="pagenation">
+          <ul class="pagination">
+            {{#each pages}}
+              {{#if isCurrent}}
+                <li class="page-item disable" aria-current="page">
+                  <a
+                    class="page-link"
+                    href="#"
+                    onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');"
+                  >{{page}}</a>
+                </li>
+              {{/if}}
+              {{#unless isCurrent}}
+                <li class="page-item" aria-current="page">
+                  <a class="page-link" href="#" onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');">{{page}} </a>
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </nav>
+      {{/pagination}}
+    </script>
+
+    <script id="readmore-template" type="text/x-handlebars-template">
+      <div class="container py-3 clearfix">
+        {{#each data}}
+          <h3 text="black">{{name}}</h3>
+          <p class="text-black-50">by
+            {{author}}
+            in
+            <a href="#">{{category.name}}</a>
+            on
+            {{formatDate date}}
+            <a href="#comment">Comments ({{comments.length}})</a>
+          </p>
+          <img src="{{thumbpath}}" alt="{{name}}" class="float-start me-3" />
+          <div class="text-black-50">{{{description}}}</div>
+          <a href="#" name="comment"></a>
+
+          <div class="py-3" id="comment-input">
+            <h3>Leave your comments</h3>
+            <form action="#" method="post" class="text-black-50">
+              <div class="row">
+                <div class="col-4">
+                  <div class="mb-3">
+                    <label for="name" class="form-label">Name (Required)</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      name="name"
+                      id="name"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      required
+                    />
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      name="email"
+                      id="email"
+                      aria-describedby="helpId"
+                      placeholder=""
+                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <textarea
+                  class="form-control"
+                  name="message"
+                  id="message"
+                  rows="3"
+                  placeholder="Enter your message here"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="row">
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id=""
+                    value="1"
+                    name="agree-terms"
+                    required
+                  />
+                  <label class="form-check-label" for="">Agree to terms and
+                    conditions</label>
+                </div>
+                <div class="col text-end">
+                  <button type="submit" class="btn btn-link">Submit Comment</button>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <div class="text-white-50 bg-dark p-2">Comments ({{length}})</div>
+          {{#each comments}}
+            <div class="" id="comment-show">
+              <div class="text-black-50 p-2">
+                <p>{{name}}
+                  &nbsp; &nbsp;{{formatDate date}}</p>
+                <p>{{summary}}</p>
+                <br />
+                <hr />
+              </div>
+            </div>
+          {{/each}}
+        {{/each}}
+      </div>
+    </script>
+
+    <!--Fetch data from API-->
+    <script src="23880262.js"></script>
+    <script src="handlebars-pagination-helper.js"></script>
+    <script>
+      getData("blogs-categories", "blogcategory-template", "blog-category");
+      getBlogsData("blogs", "blogs-template", "blog", 1);
+      async function loadBlogDetails(blogID, goToComments = false) {
+        await getData(`blogs/${blogID}`, "readmore-template", "blog");
+        if (goToComments) {
+          window.location.href = "#comment";
+        }
+      }
+    </script>
+  </body>
+</html>

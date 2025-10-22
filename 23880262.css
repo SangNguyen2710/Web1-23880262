@@ -101,7 +101,9 @@ h1 {
 #items-column .col-3 a {
   color: var(--blue);
 }
-
+#items-column #active {
+  color: var(--blue);
+}
 /*About us ------------------------------------------------*/
 #about-us {
   background-color: var(--pink);
@@ -154,4 +156,68 @@ h1 {
 
 #menu-footer li a.active {
   color: var(--pink);
+}
+
+/*LOGIN MODAL ------------------------------------------------*/
+#LoginModal button[type="submit"] {
+  background-color: var(--blue);
+}
+
+/*PRODUCT DETAILS ---------------------------------------------*/
+#content #banner-small {
+  background-image: url("images/bg-banner.gif");
+  padding: 5px !important;
+}
+
+#content #banner-small h1 {
+  font-family: "Changa One", cursive;
+  font-weight: 400;
+}
+
+/*ABOUT US---------------------------------------------------*/
+#main-about h1,
+#content-about h1,
+#main-gallery h1,
+#main-blogs h1,
+#main-contact h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+}
+
+#banner-small {
+  background-image: url("images/bg-banner.gif");
+  padding: 5px !important;
+}
+
+#readmore {
+  color: var(--blue);
+}
+
+#testi {
+  background-color: var(--pink);
+  min-height: 25rem !important;
+}
+#test-content #column {
+  background: url("images/quot.png") left top no-repeat;
+}
+
+/*BLOGS--------------------------------------------------------*/
+#main-blogs #list #blog-category ul li {
+  list-style-type: none;
+  background: url("images/marker1.png") 0 0.4rem no-repeat;
+  padding-left: 1.5rem;
+}
+#blog #comment-show {
+  font-size: 0.8rem;
+}
+
+/*CONTACTS --------------------------------------------------*/
+#main-contact #map {
+  height: 400px;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: var(--blue) !important;
+  border: none;
 }
