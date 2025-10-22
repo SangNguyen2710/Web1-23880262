@@ -140,7 +140,7 @@
         <p class="text-black-50">
           <i>Send an email. All fields with an * are required.</i>
         </p>
-        <form class="text-black-50">
+        <form class="text-black-50" onsubmit="onSubmit(event)">
           <div class="row">
             <div class="col-4">
               <div class="mb-3">
@@ -195,6 +195,7 @@
             </div>
           </div>
         </form>
+        <div id="response-message" class="text-danger text-center"></div>
       </div>
     </main>
     <footer>
@@ -346,6 +347,36 @@
     <script src="map.js"></script>
     <script>
       getData("gallery-categories", "category-template", "category");
+    </script>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcaRfMrAAAAADM-wTEokZmvO7ylJaLY2IUvcT0J"></script>
+    <script>
+      function onSubmit(e) {
+        e.preventDefault();
+        grecaptcha.enterprise.ready(async () => {
+          const token = await grecaptcha.enterprise.execute(
+            "6LcaRfMrAAAAADM-wTEokZmvO7ylJaLY2IUvcT0J",
+            { action: "LOGIN" }
+          );
+          let response = await fetch("verify.php", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify({ "g-token": token }),
+          });
+          if (response.status == 200) {
+            sendMail();
+          } else {
+            let target = document.getElementById("response-message");
+            target.innerHTML = "Error: Can not verify RECAPTCHA";
+          }
+        });
+      }
+      function sendMail() {
+        let target = document.getElementById("response-message");
+        target.innerHTML = "";
+      }
     </script>
   </body>
 </html>
