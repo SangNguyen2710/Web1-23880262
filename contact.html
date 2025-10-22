@@ -355,7 +355,7 @@
         grecaptcha.enterprise.ready(async () => {
           const token = await grecaptcha.enterprise.execute(
             "6LcaRfMrAAAAADM-wTEokZmvO7ylJaLY2IUvcT0J",
-            { action: "LOGIN" }
+            { action: "submit" }
           );
           let response = await fetch("verify.php", {
             method: "POST",
