@@ -179,7 +179,8 @@ h1 {
 #content-about h1,
 #main-gallery h1,
 #main-blogs h1,
-#main-contact h1 {
+#main-contact h1,
+#main-search h1 {
   font-size: 3.5rem;
   font-weight: 900;
 }

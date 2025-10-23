@@ -1,0 +1,12 @@
+<h1>Our Team</h1>
+<div class="row">
+  {{#each data}}
+    <div class="col" id="column">
+      <img class="rounded-4 img-fluid" src="{{thumbpath}}" alt="{{name}}" />
+
+      <h4 class="mb-1">{{name}}</h4>
+      <p class="text-black-50">{{summary}}</p>
+    </div>
+
+  {{/each}}
+</div>

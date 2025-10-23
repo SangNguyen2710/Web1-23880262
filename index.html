@@ -101,11 +101,16 @@
               <form
                 class="d-flex my-2 my-lg-0 border rounded-pill"
                 id="nav-form-search"
+                method="GET"
+                action="search.html"
               >
                 <input
                   class="form-control ms-3 border-0"
                   type="text"
                   placeholder="Search"
+                  id="keyword"
+                  name="keyword"
+                  required
                 />
                 <button class="btn my-2 my-sm-0 border-0" type="submit">
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -247,7 +252,6 @@
         <!--News-->
         <div class="container-fluid" id="news"></div>
       </div>
-      <div id="content" style="display: none"></div>
     </main>
     <footer>
       <!-- place footer here -->
@@ -409,14 +413,7 @@
             <p class="text-black-50">
               {{summary}}
             </p>
-            <a
-              href="#"
-              onclick="
-                getData('products/{{id}}','products-detail-template','content');
-                document.getElementById('main').style.display='none';
-                document.getElementById('content').style.display='block';
-                "
-            >Read more</a>
+            <a href="?request=products/{{id}}">Read more</a>
           </div>
         {{/each}}
       </div>
@@ -445,10 +442,11 @@
                     {{summary}}
                   </p>
                   <a
-                    href="#"
-                    onclick="getData('news/{{id}}','products-detail-template','content');
+                    href="?request=news/{{id}}"
+                    onclick="
                     document.getElementById('main').style.display='none';
-                    document.getElementById('content').style.display='block';"
+                    document.getElementById('content').style.display='block';
+                    "
                   >Read more</a>
                 </div>
               </div>
@@ -475,9 +473,16 @@
     <!--Fetch data from API-->
     <script src="23880262.js"></script>
     <script>
-      checkLogin();
-      getData("products", "products-template", "items-column");
-      getData("news", "news-template", "news");
+      let searchParams = new URLSearchParams(location.search);
+      let request = searchParams.get("request");
+      if (request) {
+        console.log(request);
+        getData(request, "products-detail-template", "main");
+      } else {
+        checkLogin();
+        getData("products", "products-template", "items-column");
+        getData("news", "news-template", "news");
+      }
     </script>
   </body>
 </html>

@@ -65,7 +65,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="about.html">About</a>
+                  <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="gallery.html">Gallery</a>
@@ -119,25 +119,8 @@
       </div>
     </header>
     <main>
-      <div class="container-fluid" id="banner-small"></div>
-      <div id="main-about">
-        <!--About-->
-        <div class="container py-5" id="about-vision">
-          <div class="row">
-            <div class="col-lg-8 col-sm-12" id="about"></div>
-            <div class="col-lg-4 col-sm-12" id="vision"></div>
-          </div>
-        </div>
-        <!--Testimonials-->
-        <div class="container-fluid" id="testi">
-          <div class="container">
-            <h1 class="text-white">Testimonials</h1>
-            <div class="container" id="test-content"></div>
-          </div>
-        </div>
-        <!--Our team-->
-        <div class="container my-5" id="ourteam"></div>
-      </div>
+      <div class="container-fluid mb-5" id="banner-small"></div>
+      <div class="container mb-3" id="main-search"></div>
     </main>
     <footer>
       <!-- place footer here -->
@@ -152,7 +135,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="about.html">About</a>
+                  <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="gallery.html">Gallery</a>
@@ -276,38 +259,48 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <!--Template for Handlebars-->
-    <script id="about-template" type="text/x-handlebars-template">
-     
-    </script>
-    <script id="detail-template" type="text/x-handlebars-template">
-     
-    </script>
 
-    <script id="vision-template" type="text/x-handlebars-template">
-     
-    </script>
+    <script id="search-template" type="text/x-handlebars-template">
+      {{#each data}}
+        <a
+          href="#"
+          action=""
+          class="text-decoration-none"
+          onclick="getData(`{{type}}/{{id}}`,'details-template','main-search')"
+        >
+          <div class="container py-3 overflow-auto clearfix">
+            <h3>{{name}}</h3>
+            {{#if thumbpath}}
+              <img src="{{thumbpath}}" alt="{{name}}" class="float-start" />
+            {{/if}}
+            <div class="text-black-50">{{description}}</div>
+          </div>
+        </a>
 
-    <script id="test-template" type="text/x-handlebars-template">
-  
+      {{/each}}
     </script>
+    <script id="details-template" type="text/x-handlebars-template">
+      {{#each data}}
 
-    <script id="team-template" type="text/x-handlebars-template">
-     
+        <div class="container py-3 overflow-auto clearfix">
+          <h3>{{name}}</h3>
+          {{#if imagepath}}
+            <img src="{{imagepath}}" alt="{{name}}" class="float-start" />
+          {{/if}}
+          <div class="text-black-50">{{summary}}</div>
+        </div>
+
+      {{/each}}
     </script>
     <!--Fetch data from API-->
     <script src="23880262.js"></script>
     <script>
+      checkLogin();
+
       let searchParams = new URLSearchParams(location.search);
-      let request = searchParams.get("request");
-      if (request) {
-        getData(request, "detail-template", "main-about");
-      } else {
-        checkLogin();
-        getData("aboutus", "about-template", "about");
-        getData("visions", "vision-template", "vision");
-        getData("testimonials", "test-template", "test-content");
-        getData("team", "team-template", "ourteam");
+      let keyword = searchParams.get("keyword");
+      if (keyword) {
+        getData(`search?keyword=${keyword}`, "search-template", "main-search");
       }
     </script>
   </body>

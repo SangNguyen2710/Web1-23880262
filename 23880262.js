@@ -123,6 +123,10 @@ function displayControls(isLogin = true) {
     login[i].style.display = displayLogin;
     logout[i].style.display = displayLogout;
   }
+  let commentInput = document.getElementById("comment-input");
+  if (commentInput) {
+    commentInput.style.display = displayLogout;
+  }
 }
 
 async function checkLogin() {
@@ -151,4 +155,39 @@ async function verifyToken() {
 function logout() {
   localStorage.clear();
   displayControls(false);
+}
+
+async function sendComment(e) {
+  e.preventDefault();
+  try {
+    let token = localStorage.getItem("token");
+    if (token) {
+      let postData = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        comment: document.getElementById("message").value,
+        blogId: document.getElementById("id").value,
+        agree: document.getElementById("agree-terms").value == 1,
+      };
+      let response = await fetch(`${AUTH_API}/comment`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(postData),
+      });
+      let result = await response.json();
+      if (response.status == 200) {
+        document.getElementById("sendmessage-output").innerHTML =
+          result.message;
+        console.log(result.message);
+      }
+    } else {
+      throw new Error(result.message);
+    }
+  } catch (error) {
+    document.getElementById("sendmessage-output").innerHTML = result.message;
+  }
 }

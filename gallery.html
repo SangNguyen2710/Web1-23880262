@@ -98,11 +98,16 @@
               <form
                 class="d-flex my-2 my-lg-0 border rounded-pill"
                 id="nav-form-search"
+                method="GET"
+                action="search.html"
               >
                 <input
                   class="form-control ms-3 border-0"
                   type="text"
                   placeholder="Search"
+                  id="keyword"
+                  name="keyword"
+                  required
                 />
                 <button class="btn my-2 my-sm-0 border-0" type="submit">
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -263,15 +268,14 @@
     <!--Template for Handlebars-->
     <script id="category-template" type="text/x-handlebars-template">
       <a
-        href="#"
+        href="?gallery=gallery"
         class="text-decoration-none pe-4"
         onclick="getData('gallery', 'products-template', 'content-gallery');"
       >Show all</a>
       {{#each data}}
         <a
-          href="#"
+          href="?categories=gallery/categories/{{id}}"
           class="text-decoration-none pe-4"
-          onclick="getData('gallery/categories/{{id}}', 'products-template', 'content-gallery');"
         >{{name}}</a>
       {{/each}}
     </script>
@@ -294,9 +298,20 @@
     <!--Fetch data from API-->
     <script src="23880262.js"></script>
     <script>
-      checkLogin();
-      getData("gallery-categories", "category-template", "category");
-      getData("gallery", "products-template", "content-gallery");
+      let searchParams = new URLSearchParams(location.search);
+      let gallery = searchParams.get("gallery"); // Khi click vào show all
+      let categories = searchParams.get("categories"); // Khi click vào show all
+      if (gallery) {
+        getData(gallery, "products-template", "content-gallery");
+        getData("gallery-categories", "category-template", "category");
+      } else if (categories) {
+        getData(categories, "products-template", "content-gallery");
+        getData("gallery-categories", "category-template", "category");
+      } else {
+        checkLogin();
+        getData("gallery-categories", "category-template", "category");
+        getData("gallery", "products-template", "content-gallery");
+      }
     </script>
   </body>
 </html>

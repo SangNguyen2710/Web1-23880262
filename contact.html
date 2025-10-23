@@ -98,11 +98,16 @@
               <form
                 class="d-flex my-2 my-lg-0 border rounded-pill"
                 id="nav-form-search"
+                method="GET"
+                action="search.html"
               >
                 <input
                   class="form-control ms-3 border-0"
                   type="text"
                   placeholder="Search"
+                  id="keyword"
+                  name="keyword"
+                  required
                 />
                 <button class="btn my-2 my-sm-0 border-0" type="submit">
                   <i class="fa-solid fa-magnifying-glass"></i>
@@ -348,20 +353,6 @@
       referrerpolicy="no-referrer"
     ></script>
     <!--Template for Handlebars-->
-    <script id="category-template" type="text/x-handlebars-template">
-      <a
-        href="#"
-        class="text-decoration-none pe-4"
-        onclick="getData('gallery', 'products-template', 'content-gallery');"
-      >Show all</a>
-      {{#each data}}
-        <a
-          href="#"
-          class="text-decoration-none pe-4"
-          onclick="getData('gallery/categories/{{id}}', 'products-template', 'content-gallery');"
-        >{{name}}</a>
-      {{/each}}
-    </script>
 
     <!--Fetch data from API-->
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
@@ -370,6 +361,7 @@
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcaRfMrAAAAADM-wTEokZmvO7ylJaLY2IUvcT0J"></script>
     <script>
       checkLogin();
+
       function onSubmit(e) {
         e.preventDefault();
         grecaptcha.enterprise.ready(async () => {
@@ -396,7 +388,7 @@
       async function sendMail() {
         /*Lấy token*/
         try {
-          let token = await getAuth("test", "1c3cr3@m");
+          let token = localStorage.getItem("token");
           console.log("token la: " + token);
           let postData = {
             name: document.getElementById("name").value,

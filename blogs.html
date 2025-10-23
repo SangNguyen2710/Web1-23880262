@@ -285,8 +285,7 @@
           <li class="mb-2">
             <a
               class="text-decoration-none text-black-50"
-              href="#"
-              onclick="getBlogsData('blogs/categories/{{id}}', 'blogs-template', 'blog', 1);"
+              href="?categories=blogs/categories/{{id}}"
             >{{name}}</a>
           </li>
         {{/each}}
@@ -303,14 +302,13 @@
             {{author}}
             in
             <a
-              href="#"
-              onclick="getBlogsData('blogs/categories/{{category.id}}', 'blogs-template', 'blog', 1);"
+              href="?categories=blogs/categories/{{category.id}}"
+
             >{{category.name}}</a>
             on
             {{formatDate date}}
             <a
-              href="#"
-              onclick="loadBlogDetails('{{id}}',true);"
+              href="?comment={{id}}"
             >Comments ({{comments.length}})</a>
           </p>
           <img
@@ -321,7 +319,7 @@
           <p class="text-black-50 mb-5">
             {{summary}}
           </p>
-          <a href="#" id="readmore" onclick="loadBlogDetails('{{id}}')">Read more</a>
+          <a href="?detail={{id}}" id="readmore">Read more</a>
         </div>
 
       {{/each}}
@@ -368,7 +366,13 @@
 
           <div class="py-3" id="comment-input">
             <h3>Leave your comments</h3>
-            <form action="#" method="post" class="text-black-50">
+            <form
+              action="#"
+              method="post"
+              class="text-black-50"
+              onsubmit="sendComment(event)"
+            >
+              <input id="id" type="hidden" value="{{id}}" />
               <div class="row">
                 <div class="col-4">
                   <div class="mb-3">
@@ -430,9 +434,10 @@
                 </div>
               </div>
             </form>
+            <div class="justify-content-centet" id=""></div>
           </div>
 
-          <div class="text-white-50 bg-dark p-2">Comments ({{length}})</div>
+          <div class="text-white-50 bg-dark p-2">Comments ({{comments.length}})</div>
           {{#each comments}}
             <div class="" id="comment-show">
               <div class="text-black-50 p-2">
@@ -452,11 +457,29 @@
     <script src="23880262.js"></script>
     <script src="handlebars-pagination-helper.js"></script>
     <script>
-      checkLogin();
-      getData("blogs-categories", "blogcategory-template", "blog-category");
-      getBlogsData("blogs", "blogs-template", "blog", 1);
+      let searchParams = new URLSearchParams(location.search);
+
+      let categories = searchParams.get("categories"); // Xử lý load loại khi nhấn vào categories
+      let detail = searchParams.get("detail"); // Xử lý load loại khi nhấn readmore
+      let comment = searchParams.get("comment"); // Xử lý load loại khi nhấn comment
+
+      if (categories) {
+        getBlogsData(categories, "blogs-template", "blog", 1);
+        getData("blogs-categories", "blogcategory-template", "blog-category");
+      } else if (detail) {
+        loadBlogDetails(detail);
+        getData("blogs-categories", "blogcategory-template", "blog-category");
+      } else if (comment) {
+        loadBlogDetails(comment, true);
+        getData("blogs-categories", "blogcategory-template", "blog-category");
+      } else {
+        checkLogin();
+        getData("blogs-categories", "blogcategory-template", "blog-category");
+        getBlogsData("blogs", "blogs-template", "blog", 1);
+      }
       async function loadBlogDetails(blogID, goToComments = false) {
         await getData(`blogs/${blogID}`, "readmore-template", "blog");
+        checkLogin();
         if (goToComments) {
           window.location.href = "#comment";
         }
