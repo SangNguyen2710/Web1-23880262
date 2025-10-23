@@ -399,7 +399,7 @@
           });
           let result = response.json();
 
-          if (result.status == 200) {
+          if (response.status == 200) {
             let target = document.getElementById("response-message");
             target.innerHTML = result.message;
           } else {
