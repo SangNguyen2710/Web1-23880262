@@ -1,4 +1,5 @@
 const API = "https://web1-api.vercel.app/api";
+const AUTH_API = "https://web1-api.vercel.app/users/";
 
 async function getData(request, template, destination) {
   const url = `${API}/${request}`;
@@ -54,5 +55,25 @@ function setElementActive(elementtag, isActive = true) {
   if (isActive) elementtag.id = "active";
   else {
     elementtag.id = "";
+  }
+}
+
+async function getAuth(username, password) {
+  const url = `${AUTH_API}/users/${request}`;
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({ username, password }),
+    });
+    let result = await response.status;
+    if (result == 200) {
+      return result.token;
+    }
+  } catch (error) {
+    console.error(error.message);
   }
 }

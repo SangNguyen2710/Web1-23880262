@@ -373,9 +373,40 @@
           }
         });
       }
-      function sendMail() {
-        let target = document.getElementById("response-message");
-        target.innerHTML = "OK";
+      async function sendMail() {
+        /*Lấy token*/
+        try {
+          let token = getAuth("test", "1c3cr3@m");
+
+          let postData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            subject: document.getElementById("message").value,
+            message: document.getElementById("message").value,
+            copy: document.getElementById("copy").value,
+          };
+
+          let response = await fetch(`${AUTH_API}/send`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+              Authorization: "Bearer " + token,
+            },
+            body: JSON.stringify(postData),
+          });
+          let result = response.json();
+
+          if (result.status == 200) {
+            let target = document.getElementById("response-message");
+            target.innerHTML = result.message;
+          } else {
+            throw new Error(result.message);
+          }
+        } catch (error) {
+          let target = document.getElementById("response-message");
+          target.innerHTML = "Username or password wrong";
+        }
       }
     </script>
   </body>
