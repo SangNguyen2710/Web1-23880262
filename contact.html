@@ -377,7 +377,7 @@
       async function sendMail() {
         /*Lấy token*/
         try {
-          let token = getAuth("test", "1c3cr3@m");
+          let token = await getAuth("test", "1c3cr3@m");
           console.log("token la: " + token);
           let postData = {
             name: document.getElementById("name").value,
