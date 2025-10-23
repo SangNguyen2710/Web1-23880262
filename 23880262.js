@@ -61,7 +61,7 @@ function setElementActive(elementtag, isActive = true) {
 async function getAuth(username, password) {
   const url = `${AUTH_API}/authenticate`;
   try {
-    const response = await fetch(url, {
+    let response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -69,7 +69,7 @@ async function getAuth(username, password) {
       },
       body: JSON.stringify({ username, password }),
     });
-    let result = response.json();
+    let result = await response.json();
     if (result.status == 200) {
       console.log("Lay thanh cong token: " + result.token);
       return result.token;
