@@ -378,7 +378,7 @@
         /*Lấy token*/
         try {
           let token = getAuth("test", "1c3cr3@m");
-          console.log(token);
+          console.log("token la: " + token);
           let postData = {
             name: document.getElementById("name").value,
             email: document.getElementById("email").value,
@@ -406,6 +406,7 @@
           }
         } catch (error) {
           let target = document.getElementById("response-message");
+          console.log(error);
           target.innerHTML = error;
         }
       }
