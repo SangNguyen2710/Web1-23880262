@@ -387,6 +387,7 @@
             copy: document.getElementById("copy").value,
           };
 
+          console.log(postData);
           let response = await fetch(`${AUTH_API}/send`, {
             method: "POST",
             headers: {
