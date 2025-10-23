@@ -397,7 +397,7 @@
             },
             body: JSON.stringify(postData),
           });
-          let result = response.json();
+          let result = await response.json();
 
           if (response.status == 200) {
             let target = document.getElementById("response-message");
