@@ -71,6 +71,7 @@ async function getAuth(username, password) {
     });
     let result = await response.status;
     if (result == 200) {
+      console.log("Lay thanh cong token: " + result.token);
       return result.token;
     }
   } catch (error) {
