@@ -405,7 +405,7 @@
           }
         } catch (error) {
           let target = document.getElementById("response-message");
-          target.innerHTML = "Username or password wrong";
+          target.innerHTML = error.message;
         }
       }
     </script>
