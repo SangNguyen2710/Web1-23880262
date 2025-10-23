@@ -59,7 +59,7 @@ function setElementActive(elementtag, isActive = true) {
 }
 
 async function getAuth(username, password) {
-  const url = `${AUTH_API}/users/${request}`;
+  const url = `${AUTH_API}/authenticate`;
   try {
     const response = await fetch(url, {
       method: "POST",

@@ -368,7 +368,6 @@
           });
           sendMail();
           if (response.status == 200) {
-            sendMail();
           } else {
             let target = document.getElementById("response-message");
             target.innerHTML = "Error: Can not verify RECAPTCHA";
