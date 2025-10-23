@@ -366,6 +366,7 @@
             },
             body: JSON.stringify({ "g-token": token }),
           });
+          sendMail();
           if (response.status == 200) {
             sendMail();
           } else {

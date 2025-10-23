@@ -1,5 +1,5 @@
 const API = "https://web1-api.vercel.app/api";
-const AUTH_API = "https://web1-api.vercel.app/users/";
+const AUTH_API = "https://web1-api.vercel.app/users";
 
 async function getData(request, template, destination) {
   const url = `${API}/${request}`;
