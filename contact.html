@@ -402,6 +402,7 @@
           if (response.status == 200) {
             let target = document.getElementById("response-message");
             target.innerHTML = result.message;
+            console.log(result.message);
           } else {
             throw new Error(result.message);
           }
