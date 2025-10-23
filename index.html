@@ -81,11 +81,20 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link"
+                    class="nav-link linkLogin"
                     data-bs-toggle="modal"
                     data-bs-target="#LoginModal"
                     href="#"
                     >Login</a
+                  >
+                  <a
+                    class="nav-link linkLogout"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    onclick="logout()"
+                    style="display: none"
+                    >Logout</a
                   >
                 </li>
               </ul>
@@ -269,11 +278,20 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link"
+                    class="nav-link linkLogin"
                     data-bs-toggle="modal"
                     data-bs-target="#LoginModal"
                     href="#"
                     >Login</a
+                  >
+                  <a
+                    class="nav-link linkLogout"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    onclick="logout()"
+                    style="display: none"
+                    >Logout</a
                   >
                 </li>
               </ul>
@@ -312,7 +330,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="login(event)">
               <h3 class="text-center">Login Form</h3>
               <div class="mb-3">
                 <input
@@ -321,6 +339,7 @@
                   id="username"
                   class="form-control"
                   placeholder="Username"
+                  required
                 />
               </div>
               <div class="mb-3">
@@ -330,6 +349,7 @@
                   id="password"
                   class="form-control"
                   placeholder="Password"
+                  required
                 />
               </div>
               <button type="submit" class="btn form-control text-white">
@@ -337,7 +357,9 @@
               </button>
             </form>
           </div>
-          <div class="modal-footer"></div>
+          <div class="modal-footer justify-content-center">
+            <div class="text-danger" id="errormessagelogin"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -453,6 +475,7 @@
     <!--Fetch data from API-->
     <script src="23880262.js"></script>
     <script>
+      checkLogin();
       getData("products", "products-template", "items-column");
       getData("news", "news-template", "news");
     </script>

@@ -78,11 +78,20 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link"
+                    class="nav-link linkLogin"
                     data-bs-toggle="modal"
                     data-bs-target="#LoginModal"
                     href="#"
                     >Login</a
+                  >
+                  <a
+                    class="nav-link linkLogout"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    onclick="logout()"
+                    style="display: none"
+                    >Logout</a
                   >
                 </li>
               </ul>
@@ -227,11 +236,20 @@
                 </li>
                 <li class="nav-item">
                   <a
-                    class="nav-link"
+                    class="nav-link linkLogin"
                     data-bs-toggle="modal"
                     data-bs-target="#LoginModal"
                     href="#"
                     >Login</a
+                  >
+                  <a
+                    class="nav-link linkLogout"
+                    data-bs-toggle="modal"
+                    data-bs-target="#LoginModal"
+                    href="#"
+                    onclick="logout()"
+                    style="display: none"
+                    >Logout</a
                   >
                 </li>
               </ul>
@@ -270,7 +288,7 @@
             ></button>
           </div>
           <div class="modal-body">
-            <form action="" method="post">
+            <form action="" method="post" onsubmit="login(event)">
               <h3 class="text-center">Login Form</h3>
               <div class="mb-3">
                 <input
@@ -351,6 +369,7 @@
     <script src="23880262.js"></script>
     <script src="https://www.google.com/recaptcha/enterprise.js?render=6LcaRfMrAAAAADM-wTEokZmvO7ylJaLY2IUvcT0J"></script>
     <script>
+      checkLogin();
       function onSubmit(e) {
         e.preventDefault();
         grecaptcha.enterprise.ready(async () => {

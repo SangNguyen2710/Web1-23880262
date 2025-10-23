@@ -1,3 +1,8 @@
+/*
+user name: web1
+password: W3b1@Project
+*/
+
 const API = "https://web1-api.vercel.app/api";
 const AUTH_API = "https://web1-api.vercel.app/users";
 
@@ -79,4 +84,71 @@ async function getAuth(username, password) {
   } catch (error) {
     console.error(error);
   }
+}
+
+async function login(e) {
+  e.preventDefault();
+  let username = document.getElementById("username").value;
+  let pw = document.getElementById("password").value;
+
+  try {
+    let token = await getAuth(username, pw);
+    if (token) {
+      localStorage.setItem("token", token);
+      document.getElementsByClassName("btn-close")[0].click();
+
+      displayControls();
+    } else {
+      throw new Error();
+    }
+  } catch (error) {
+    document.getElementById("errormessagelogin").innerHTML =
+      "Username or password wrong";
+    displayControls(false);
+  }
+}
+
+function displayControls(isLogin = true) {
+  let login = document.getElementsByClassName("linkLogin");
+  let logout = document.getElementsByClassName("linkLogout");
+
+  let displayLogin = "none";
+  let displayLogout = "block";
+  if (!isLogin) {
+    displayLogin = "block";
+    displayLogout = "none";
+  }
+
+  for (let i = 0; i < 2; i++) {
+    login[i].style.display = displayLogin;
+    logout[i].style.display = displayLogout;
+  }
+}
+
+async function checkLogin() {
+  let isLogin = await verifyToken();
+  console.log(isLogin);
+  displayControls(isLogin);
+}
+async function verifyToken() {
+  let token = localStorage.getItem("token");
+  if (token) {
+    let response = await fetch(`${AUTH_API}/verify`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Authorization: "Bearer " + token,
+      },
+    });
+    if (response.status == 200) {
+      return true;
+    }
+  } else {
+    return false;
+  }
+}
+function logout() {
+  localStorage.clear();
+  displayControls(false);
 }
