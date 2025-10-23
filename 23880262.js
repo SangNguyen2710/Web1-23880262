@@ -69,7 +69,7 @@ async function getAuth(username, password) {
       },
       body: JSON.stringify({ username, password }),
     });
-    let result = await response.status;
+    let result = await response.json();
     if (result == 200) {
       console.log("Lay thanh cong token: " + result.token);
       return result.token;
