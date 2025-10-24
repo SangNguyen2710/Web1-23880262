@@ -1,0 +1,13 @@
+<a
+  href="?gallery=gallery"
+  class="text-decoration-none pe-4"
+  onclick="getData('gallery', 'products-template', 'content-gallery');"
+>Show all
+</a>
+{{#each data}}
+  <a
+    href="?categories=gallery/categories/{{id}}"
+    class="text-decoration-none pe-4"
+  >{{name}}
+  </a>
+{{/each}}

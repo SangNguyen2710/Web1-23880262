@@ -1,0 +1,11 @@
+<h1>Categories</h1>
+<ul>
+  {{#each data}}
+    <li class="mb-2">
+      <a
+        class="text-decoration-none text-black-50"
+        href="?categories=blogs/categories/{{id}}"
+      >{{name}}</a>
+    </li>
+  {{/each}}
+</ul>

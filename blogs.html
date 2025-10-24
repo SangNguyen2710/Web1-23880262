@@ -256,13 +256,13 @@
 
     <!--Handlebars JS-->
     <!-- Include Handlebars from a CDN -->
-
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
-      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.runtime.min.js"
+      integrity="sha512-WUaZk9J3oknQdKPT2wAfA0gEBG2371l1ACjiynLA/X28p07n1u59VFk7q1i83/bo7N9rqVdYKlnvwAAiwL36jQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="js/blogs.template.js"></script>
     <!--Template for Handlebars-->
     <script>
       Handlebars.registerHelper("formatDate", function (date) {
@@ -277,181 +277,15 @@
         return formatDate.toLocaleDateString("en-US", option);
       });
     </script>
+    <!-- 
+    <script
+      id="blogcategory-template"
+      type="text/x-handlebars-template"
+    ></script>
 
-    <script id="blogcategory-template" type="text/x-handlebars-template">
-      <h1>Categories</h1>
-      <ul>
-        {{#each data}}
-          <li class="mb-2">
-            <a
-              class="text-decoration-none text-black-50"
-              href="?categories=blogs/categories/{{id}}"
-            >{{name}}</a>
-          </li>
-        {{/each}}
-      </ul>
-    </script>
+    <script id="blogs-template" type="text/x-handlebars-template"></script>
 
-    <script id="blogs-template" type="text/x-handlebars-template">
-      <h1 class="mb-3">Blogs</h1>
-      {{#each data}}
-        <div class="clearfix mb-3">
-          <h3>{{name}}</h3>
-          <p class="text-black-50">
-            by
-            {{author}}
-            in
-            <a
-              href="?categories=blogs/categories/{{category.id}}"
-
-            >{{category.name}}</a>
-            on
-            {{formatDate date}}
-            <a
-              href="?comment={{id}}"
-            >Comments ({{comments.length}})</a>
-          </p>
-          <img
-            src="{{thumbpath}}"
-            alt="{{name}}"
-            class="float-start rounded-4 me-3"
-          />
-          <p class="text-black-50 mb-5">
-            {{summary}}
-          </p>
-          <a href="?detail={{id}}" id="readmore">Read more</a>
-        </div>
-
-      {{/each}}
-      <!--Pagination-->
-      {{#pagination currentPage pageCount}}
-        <nav aria-label="Page navigation" id="pagenation">
-          <ul class="pagination">
-            {{#each pages}}
-              {{#if isCurrent}}
-                <li class="page-item disable" aria-current="page">
-                  <a
-                    class="page-link"
-                    href="#"
-                    onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');"
-                  >{{page}}</a>
-                </li>
-              {{/if}}
-              {{#unless isCurrent}}
-                <li class="page-item" aria-current="page">
-                  <a class="page-link" href="#" onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');">{{page}} </a>
-                </li>
-              {{/unless}}
-            {{/each}}
-          </ul>
-        </nav>
-      {{/pagination}}
-    </script>
-
-    <script id="readmore-template" type="text/x-handlebars-template">
-      <div class="container py-3 clearfix">
-        {{#each data}}
-          <h3 text="black">{{name}}</h3>
-          <p class="text-black-50">by
-            {{author}}
-            in
-            <a href="#">{{category.name}}</a>
-            on
-            {{formatDate date}}
-            <a href="#comment">Comments ({{comments.length}})</a>
-          </p>
-          <img src="{{thumbpath}}" alt="{{name}}" class="float-start me-3" />
-          <div class="text-black-50">{{{description}}}</div>
-          <a href="#" name="comment"></a>
-
-          <div class="py-3" id="comment-input">
-            <h3>Leave your comments</h3>
-            <form
-              action="#"
-              method="post"
-              class="text-black-50"
-              onsubmit="sendComment(event)"
-            >
-              <input id="id" type="hidden" value="{{id}}" />
-              <div class="row">
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="name" class="form-label">Name (Required)</label>
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="name"
-                      id="name"
-                      aria-describedby="helpId"
-                      placeholder=""
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div class="col-4">
-                  <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      id="email"
-                      aria-describedby="helpId"
-                      placeholder=""
-                      pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              <div class="mb-3">
-                <textarea
-                  class="form-control"
-                  name="message"
-                  id="message"
-                  rows="3"
-                  placeholder="Enter your message here"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="row">
-                <div class="form-check form-check-inline">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    id=""
-                    value="1"
-                    name="agree-terms"
-                    required
-                  />
-                  <label class="form-check-label" for="">Agree to terms and
-                    conditions</label>
-                </div>
-                <div class="col text-end">
-                  <button type="submit" class="btn btn-link">Submit Comment</button>
-                </div>
-              </div>
-            </form>
-            <div class="justify-content-centet" id=""></div>
-          </div>
-
-          <div class="text-white-50 bg-dark p-2">Comments ({{comments.length}})</div>
-          {{#each comments}}
-            <div class="" id="comment-show">
-              <div class="text-black-50 p-2">
-                <p>{{name}}
-                  &nbsp; &nbsp;{{formatDate date}}</p>
-                <p>{{summary}}</p>
-                <br />
-                <hr />
-              </div>
-            </div>
-          {{/each}}
-        {{/each}}
-      </div>
-    </script>
+    <script id="readmore-template" type="text/x-handlebars-template"></script> -->
 
     <!--Fetch data from API-->
     <script src="23880262.js"></script>

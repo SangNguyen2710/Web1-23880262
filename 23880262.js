@@ -15,8 +15,13 @@ async function getData(request, template, destination) {
     }
 
     const result = await response.json();
+    /* Không sử dụng đưojc nữa vì compile handlebar thành js
     var source = document.getElementById(template).innerHTML;
     var template = Handlebars.compile(source);
+    */
+    console.log(Handlebars.templates);
+
+    var template = Handlebars.templates[template];
     var data = { data: result };
 
     var target = document.getElementById(destination);
@@ -38,8 +43,13 @@ async function getBlogsData(request, template, destination, page = 1) {
     result.currentPage = page;
     result.request = request;
     console.log(result);
+    /*
     var source = document.getElementById(template).innerHTML;
     var template = Handlebars.compile(source);
+    */
+    console.log(Handlebars.templates);
+
+    var template = Handlebars.templates[template];
     var target = document.getElementById(destination);
     target.innerHTML = template(result);
   } catch (error) {

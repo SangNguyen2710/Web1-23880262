@@ -259,39 +259,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-
-    <script id="search-template" type="text/x-handlebars-template">
-      {{#each data}}
-        <a
-          href="#"
-          action=""
-          class="text-decoration-none"
-          onclick="getData(`{{type}}/{{id}}`,'details-template','main-search')"
-        >
-          <div class="container py-3 overflow-auto clearfix">
-            <h3>{{name}}</h3>
-            {{#if thumbpath}}
-              <img src="{{thumbpath}}" alt="{{name}}" class="float-start" />
-            {{/if}}
-            <div class="text-black-50">{{description}}</div>
-          </div>
-        </a>
-
-      {{/each}}
-    </script>
-    <script id="details-template" type="text/x-handlebars-template">
-      {{#each data}}
-
-        <div class="container py-3 overflow-auto clearfix">
-          <h3>{{name}}</h3>
-          {{#if imagepath}}
-            <img src="{{imagepath}}" alt="{{name}}" class="float-start" />
-          {{/if}}
-          <div class="text-black-50">{{summary}}</div>
-        </div>
-
-      {{/each}}
-    </script>
+    <!-- 
+    <script id="search-template" type="text/x-handlebars-template"></script>
+    <script id="details-template" type="text/x-handlebars-template"></script> -->
     <!--Fetch data from API-->
     <script src="23880262.js"></script>
     <script>

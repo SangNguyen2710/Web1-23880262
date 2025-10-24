@@ -390,85 +390,22 @@
     ></script>
 
     <!--Handlebars JS-->
-    <!-- Include Handlebars from a CDN -->
+    <!-- Include Handlebars runtime from a CDN -->
     <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
-      integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.runtime.min.js"
+      integrity="sha512-WUaZk9J3oknQdKPT2wAfA0gEBG2371l1ACjiynLA/X28p07n1u59VFk7q1i83/bo7N9rqVdYKlnvwAAiwL36jQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="js/index.template.js"></script>
     <!--Template for Handlebars-->
-    <script id="products-template" type="text/x-handlebars-template">
-      <div class="row align-items-center py-5">
-        {{#each data}}
-          <div class="col-lg-3 col-md-6 col-sm-12 text-center">
-            <img
-              src="{{imagepath}}"
-              class="img-fluid rounded-top"
-              alt="{{name}}"
-              onmouseover="setActiveImage(this,'{{imagepath}}')"
-              onmouseout="setActiveImage(this,'{{imagepath}}', false)"
-            />
-            <h3>{{name}}</h3>
-            <p class="text-black-50">
-              {{summary}}
-            </p>
-            <a href="?request=products/{{id}}">Read more</a>
-          </div>
-        {{/each}}
-      </div>
-    </script>
-    <script id="news-template" type="text/x-handlebars-template">
-      <div class="container">
-        <h1 class="text-bold text-black">News</h1>
-        <div class="row g-5">
-          <!--Cột 1-->
-          {{#each data}}
-            <div class="col-4">
-              <div class="row">
-                <div class="col-lg-3 col-md-5 col-sm-12">
-                  <h3
-                    class="text-white text-bold text-center py-2 px-2 rounded-3"
-                    id="date"
-                  >
-                    {{date}}
-                  </h3>
-                </div>
-                <div class="col-lg-9 col-md-7 col-sm-12">
-                  <h3 class="text-black text-bold">
-                    {{name}}
-                  </h3>
-                  <p class="text-black-50">
-                    {{summary}}
-                  </p>
-                  <a
-                    href="?request=news/{{id}}"
-                    onclick="
-                    document.getElementById('main').style.display='none';
-                    document.getElementById('content').style.display='block';
-                    "
-                  >Read more</a>
-                </div>
-              </div>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-    </script>
+    <!-- <script id="products-template" type="text/x-handlebars-template"></script>
+    <script id="news-template" type="text/x-handlebars-template"></script>
 
-    <script id="products-detail-template" type="text/x-handlebars-template">
-      <div class="container-fluid" id="banner-small">
-      </div>
-      <div class="container py-5">
-        {{#each data}}
-          <h1
-            class="pb-1"
-            style="font-size: 4.5rem; font-weight: 900;"
-          >{{name}}</h1>
-          <div class="text-black-50">{{{description}}}</div>
-        {{/each}}
-      </div>
-    </script>
+    <script
+      id="products-detail-template"
+      type="text/x-handlebars-template"
+    ></script> -->
 
     <!--Fetch data from API-->
     <script src="23880262.js"></script>

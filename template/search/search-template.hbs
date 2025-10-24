@@ -1,0 +1,17 @@
+{{#each data}}
+  <a
+    href="#"
+    action=""
+    class="text-decoration-none"
+    onclick="getData(`{{type}}/{{id}}`,'details-template','main-search')"
+  >
+    <div class="container py-3 overflow-auto clearfix">
+      <h3>{{name}}</h3>
+      {{#if thumbpath}}
+        <img src="{{thumbpath}}" alt="{{name}}" class="float-start" />
+      {{/if}}
+      <div class="text-black-50">{{description}}</div>
+    </div>
+  </a>
+
+{{/each}}

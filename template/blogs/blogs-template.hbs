@@ -1,0 +1,53 @@
+ <h1 class="mb-3">Blogs</h1>
+      {{#each data}}
+        <div class="clearfix mb-3">
+          <h3>{{name}}</h3>
+          <p class="text-black-50">
+            by
+            {{author}}
+            in
+            <a
+              href="?categories=blogs/categories/{{category.id}}"
+
+            >{{category.name}}</a>
+            on
+            {{formatDate date}}
+            <a
+              href="?comment={{id}}"
+            >Comments ({{comments.length}})</a>
+          </p>
+          <img
+            src="{{thumbpath}}"
+            alt="{{name}}"
+            class="float-start rounded-4 me-3"
+          />
+          <p class="text-black-50 mb-5">
+            {{summary}}
+          </p>
+          <a href="?detail={{id}}" id="readmore">Read more</a>
+        </div>
+
+      {{/each}}
+      <!--Pagination-->
+      {{#pagination currentPage pageCount}}
+        <nav aria-label="Page navigation" id="pagenation">
+          <ul class="pagination">
+            {{#each pages}}
+              {{#if isCurrent}}
+                <li class="page-item disable" aria-current="page">
+                  <a
+                    class="page-link"
+                    href="#"
+                    onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');"
+                  >{{page}}</a>
+                </li>
+              {{/if}}
+              {{#unless isCurrent}}
+                <li class="page-item" aria-current="page">
+                  <a class="page-link" href="#" onclick="getBlogsData('{{../../request}}', 'blogs-template', 'blog', '{{page}}');">{{page}} </a>
+                </li>
+              {{/unless}}
+            {{/each}}
+          </ul>
+        </nav>
+      {{/pagination}}
